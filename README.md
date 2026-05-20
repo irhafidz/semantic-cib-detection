@@ -50,7 +50,7 @@ Set `PROJECT_FOLDER` in each notebook to your Google Drive path containing the d
 ## Reproducibility
 
 - Python 3.10 · PyTorch 2.x · sentence-transformers 2.x
-- Hardware: NVIDIA A100 40 GB (Google Colab Pro)
+- Hardware: NVIDIA A100 80 GB (Google Colab Pro)
 - All random operations use `RANDOM_SEED = 42`
 - Threshold calibration uses a fixed 5,000-tweet sample drawn with `np.random.default_rng(42)`
 - Full 96K corpus processes in ~95 s per model on A100; ~300 s on T4
