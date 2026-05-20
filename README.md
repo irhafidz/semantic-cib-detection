@@ -1,7 +1,7 @@
 **Semantic–Temporal Detection of Coordinated Inauthentic Behavior in Indonesian MBG Policy Discourse**
 Code and annotation data for the paper submitted to **IEEE TENCON 2026**.
 
-> I. Hafidz, C. Auriel, N. A. Rakhmawati, and I. Hidayana, “Adaptive Semantic Thresholding for CIB Detection Under Embedding Anisotropy: A Case Study of Indonesia’s MBG Program,” in Proc. IEEE TENCON, 2026
+> I. Hafidz, C. Auriel, I. Hidayana, and N. A. Rakhmawati, “Adaptive Semantic Thresholding for CIB Detection Under Embedding Anisotropy: A Case Study of Indonesia’s MBG Program,” in Proc. IEEE TENCON, 2026
 
 
 Irmasari Hafidz, Celine Auriel, and Nur Aini Rakhmawati, Department of Information Systems, Institut Teknologi Sepuluh Nopember, Surabaya, Indonesia (e-mail: irma@its.ac.id; 5026221004@student.its.ac.id; nuraini@its.ac.id).
