@@ -1,25 +1,20 @@
-# Semantic–Temporal CIB Detection in Indonesian MBG Discourse
-
+**Semantic–Temporal Detection of Coordinated Inauthentic Behavior in Indonesian MBG Policy Discourse**
 Code and annotation data for the paper submitted to **IEEE TENCON 2026**.
-
-> **Semantic–Temporal Detection of Coordinated Inauthentic Behavior in Indonesian MBG Policy Discourse**
-
----
-
-## What this repo contains
+## 
 
 | Path | Description |
 |---|---|
-| `iaa_fleiss_kappa.ipynb` | Inter-annotator agreement — Fleiss' κ for both annotation phases |
+| `iaa_fleiss_kappa.ipynb` | Inter-annotator agreement, Fleiss' κ for both annotation phases |
 | `semantic_cib_detection.ipynb` | CIB detection pipeline on 96K tweets + T4 vs A100 benchmark |
 | `human_ai_cib_validation.ipynb` | Grid search (72 configs), P/R/F1 evaluation, Figure 1 (anisotropy) |
-| `dataset/` | Annotation CSVs (ground truth, N=945). Raw tweets not included — see below. |
+| `dataset/` | Annotation CSVs (ground truth, N=945). Raw tweets included only for tweet_id, waktu (datetime), keyword, see inside folder. |
 
 ---
 
-## Method in one paragraph
-
-We encode 96,584 Indonesian tweets about the MBG school-nutrition program with four Transformer encoders (MiniLM, IndoBERT, IndoBERTweet, XLM-RoBERTa). For each tweet, we collect all tweets posted within a forward temporal window W and compute cosine similarity against the anchor embedding. Tweets exceeding a model-specific threshold τ — calibrated from the empirical similarity distribution at quantile q — are flagged as a CIB cluster. This **Adaptive Semantic Thresholding (AST)** corrects for embedding anisotropy, which causes fixed thresholds to behave inconsistently across architectures. Ground truth is 945 human-labeled tweets (Fleiss' κ = 0.92 after balanced sampling). IndoBERTweet achieves the best F1 = 0.56 (P = 0.50, R = 0.64) at q = 0.90, W = 600 s.
+## Methodology
+- We encode 96,584 Indonesian tweets about the MBG school-nutrition program with four Transformer encoders (MiniLM, IndoBERT, IndoBERTweet, XLM-RoBERTa). For each tweet, we collect all tweets posted within a forward temporal window W and compute cosine similarity against the anchor embedding.
+- Tweets exceeding a model-specific threshold τ calibrated from the empirical similarity distribution at quantile q, are flagged as a CIB cluster. This **Adaptive Semantic Thresholding (AST)** corrects for embedding anisotropy, which causes fixed thresholds to behave inconsistently across architectures.
+- Ground truth is 945 human-labeled tweets (Fleiss' κ = 0.92 after balanced sampling). IndoBERTweet achieves the best F1 = 0.56 (P = 0.50, R = 0.64) at q = 0.90, W = 600 s.
 
 ---
 
@@ -41,7 +36,7 @@ pip install sentence-transformers scikit-learn statsmodels scipy matplotlib seab
 
 Set `PROJECT_FOLDER` in each notebook to your Google Drive path containing the data files.
 
----
+
 
 ## Reproducibility
 
@@ -64,35 +59,29 @@ Set `PROJECT_FOLDER` in each notebook to your Google Drive path containing the d
 
 Ground truth: N = 945 tweets · 5 annotators · Fleiss' κ = 0.92
 
----
 
 ## Data
 
 The raw 96,584 tweets cannot be redistributed under Twitter/X API Terms of Service. The `dataset/` folder contains:
 
-- `df-final-ground-truth.csv` — 945 annotated tweets (tweet_id, 5 annotator labels, majority-vote Ground_Truth)
-- `positive-skewed-ground-truth.csv` — Phase 1 subset (N ≈ 450, κ = 0.41, documents the Kappa Paradox)
+- `df-final-ground-truth.csv`: 945 annotated tweets (tweet_id, 5 annotator labels, majority-vote Ground_Truth)
+- `positive-skewed-ground-truth.csv`: Phase 1 subset (N ≈ 450, κ = 0.41, documents the Kappa Paradox)
+- 5 csv suspected buzzer list (anno_1.csv-anno_5.csv) and 5 csv suspected non-buzzer list (anno_nonbz_1.csv-anno_nonbz_5.csv) from 5 independent annotators
 
-To reconstruct the full corpus, use the Twitter/X API v2 with the tweet IDs in the ground truth file and the keywords: `makanan bergizi gratis`, `makan siang gratis`, `MBG`.
-
----
+To reconstruct the full corpus, use the Twitter/X API v2 with the tweet IDs in the ground truth file and the keywords: `makan bergizi gratis`, `makan siang gratis`, `mbg`, `#mbg`, `keracunan mbg`, `manfaat mbg`.
 
 ## Citation
-
-If you use this code or dataset, please cite:
+If you use this code or dataset, please cite: (if accepted)
 
 ```bibtex
 @inproceedings{hafidz2026cib,
   title     = {Semantic--Temporal Detection of Coordinated Inauthentic Behavior
                in Indonesian MBG Policy Discourse},
-  author    = {[Authors]},
+  author    = {[Hafidz, I., Auriel, C., Hidayana, I., Rakhmawati, N.A.]},
   booktitle = {Proceedings of IEEE TENCON 2026},
   year      = {2026},
 }
 ```
 
----
-
 ## License
-
 MIT — see `LICENSE`.
