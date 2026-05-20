@@ -37,7 +37,7 @@ cd semantic-cib-detection
 # 2. Install dependencies
 pip install sentence-transformers scikit-learn statsmodels scipy matplotlib seaborn pandas numpy torch
 
-# 3. Run notebooks in order (Google Colab recommended — GPU required for step 2 and 3)
+# 3. Run notebooks in order (Google Colab recommended, GPU A100 required for step 2 and 3)
 #    Step 1: iaa_fleiss_kappa.ipynb
 #    Step 2: semantic_cib_detection.ipynb
 #    Step 3: human_ai_cib_validation.ipynb
