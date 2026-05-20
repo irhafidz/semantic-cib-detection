@@ -21,7 +21,7 @@ Irma Hidayana, Department of Population Health, School of Health Science, Hofstr
 ---
 
 ## Methodology
-- We encode 96,584 Indonesian tweets about the MBG school-nutrition program with four Transformer encoders (MiniLM, IndoBERT, IndoBERTweet, XLM-RoBERTa). For each tweet, we collect all tweets posted within a forward temporal window W and compute cosine similarity against the anchor embedding.
+- We encode 96,587 Indonesian tweets about the MBG school-nutrition program with four Transformer encoders (MiniLM, IndoBERT, IndoBERTweet, XLM-RoBERTa). For each tweet, we collect all tweets posted within a forward temporal window W and compute cosine similarity against the anchor embedding.
 - Tweets exceeding a model-specific threshold τ calibrated from the empirical similarity distribution at quantile q, are flagged as a CIB cluster. This **Adaptive Semantic Thresholding (AST)** corrects for embedding anisotropy, which causes fixed thresholds to behave inconsistently across architectures.
 - Ground truth is 945 human-labeled tweets (Fleiss' κ = 0.92 after balanced sampling). IndoBERTweet achieves the best F1 = 0.56 (P = 0.50, R = 0.64) at q = 0.90, W = 600 s.
 
