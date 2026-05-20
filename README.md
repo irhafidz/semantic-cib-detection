@@ -14,7 +14,7 @@ Irma Hidayana, Department of Population Health, School of Health Science, Hofstr
 | Path | Description |
 |---|---|
 | `iaa_fleiss_kappa.ipynb` | Inter-annotator agreement, Fleiss' κ for both annotation phases |
-| `semantic_cib_detection.ipynb` | CIB detection pipeline on 96K tweets + T4 vs A100 benchmark |
+| `semantic_cib_detection.ipynb` | CIB detection pipeline on 96K tweets + T4 tesla vs NVIDIA A100-SXM4-80GB benchmark (Google Colab Pro) |
 | `human_ai_cib_validation.ipynb` | Grid search (72 configs), P/R/F1 evaluation, Figure 1 (anisotropy) |
 | `dataset/` | Annotation CSVs (ground truth, N=945). Raw tweets included only for tweet_id, waktu (datetime), keyword, see inside folder. |
 
